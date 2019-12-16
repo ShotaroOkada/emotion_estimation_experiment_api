@@ -1,12 +1,12 @@
 from drivers.firebase.main import db
 
 
-def get_emotion_parameter(user_id):
+def get_bad_veluation_text(user_id):
     try:
-        get_emotion_parameter = db.child(user_id).child(
-            "get_emotion_parameter").get()
+        bad_evaluation_texts = db.child(user_id).child(
+            "bad_evaluation_texts").get()
     except Exception as error:
         print("error get bad evaluation texts:", error)
     else:
         print("success get bad evaluation texts")
-        return get_emotion_parameter
+        return bad_evaluation_texts

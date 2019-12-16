@@ -1,0 +1,18 @@
+{
+  "b1016117": {
+    "emotion_parameter": [
+      {
+        "word": "",
+        "anger": 0,
+        "joy": 0,
+        "sadness": 0,
+        "fear": 0,
+        "disgust": 0
+      }
+    ],
+    "bad_evaluation_texts": [
+      "hoge",
+      "fuga"
+    ]
+  }
+}

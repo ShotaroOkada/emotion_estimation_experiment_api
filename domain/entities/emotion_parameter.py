@@ -1,6 +1,6 @@
 from domain.entities.emotions import EmotionCategory
 
-initial_emotion_parameter = {
+initial_emotion_parameter_element = {
     'word': '',
     EmotionCategory.ANGER: 0,
     EmotionCategory.JOY: 0,
