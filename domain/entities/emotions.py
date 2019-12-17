@@ -24,28 +24,36 @@ class EmotionCategory(Enum):
     DISGUST = 'disgust'
 
 
-emotions = [
-    {
-        'category_name': EmotionCategory.ANGER,
-        'category_emotions':  anger
-    },
-    {
-        'category_name': EmotionCategory.JOY,
-        'category_emotions':  joy
-    },
-    {
-        'category_name': EmotionCategory.SADNESS,
-        'category_emotions':  sadness
-    },
-    {
-        'category_name': EmotionCategory.FEAR,
-        'category_emotions':  fear
-    },
-    {
-        'category_name': EmotionCategory.DISGUST,
-        'category_emotions':  disgust
-    },
-]
+# emotions = [
+#     {
+#         'category_name': EmotionCategory.ANGER,
+#         'category_emotions':  anger
+#     },
+#     {
+#         'category_name': EmotionCategory.JOY,
+#         'category_emotions':  joy
+#     },
+#     {
+#         'category_name': EmotionCategory.SADNESS,
+#         'category_emotions':  sadness
+#     },
+#     {
+#         'category_name': EmotionCategory.FEAR,
+#         'category_emotions':  fear
+#     },
+#     {
+#         'category_name': EmotionCategory.DISGUST,
+#         'category_emotions':  disgust
+#     },
+# ]
+
+emotions = {
+    EmotionCategory.ANGER: anger,
+    EmotionCategory.DISGUST: disgust,
+    EmotionCategory.FEAR: fear,
+    EmotionCategory.JOY: joy,
+    EmotionCategory.SADNESS: sadness
+}
 
 order_emotion_category = [EmotionCategory.ANGER, EmotionCategory.JOY,
                           EmotionCategory.SADNESS, EmotionCategory.FEAR, EmotionCategory.DISGUST]

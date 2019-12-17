@@ -5,7 +5,7 @@ from drivers.nlu.main import natural_language_understanding
 from ibm_watson.natural_language_understanding_v1 import Features, EmotionOptions
 
 
-def estimate_emotional(text):
+def nlu_estimation_emotion(text):
     # テキストから感情を返してもらう
     response = natural_language_understanding.analyze(
         features=Features(emotion=EmotionOptions(targets=None)),
