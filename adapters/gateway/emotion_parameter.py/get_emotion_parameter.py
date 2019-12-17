@@ -6,7 +6,7 @@ def get_emotion_parameter(user_id):
         get_emotion_parameter = db.child(user_id).child(
             "get_emotion_parameter").get()
     except Exception as error:
-        print("error get bad evaluation texts:", error)
+        print("error get emotion parameter:", error)
     else:
-        print("success get bad evaluation texts")
+        print("success get emotion parameter")
         return get_emotion_parameter
