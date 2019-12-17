@@ -7,14 +7,14 @@ from domain.service.apply_emotion_parameter import apply_emotion_parameter
 from domain.service.convert_display_emotion_text import convert_display_emotion_text
 
 
-def estimation_emotion(user_id, text):
+def estimate_emotion(user_id, text):
     emotion_parameter = get_emotion_parameter(user_id)
     feature_words = morphological_analysis(text)
     english_text = translate_english(text)
     nlu_emotion_score = nlu_estimation_emotion(english_text)
     emotion_score_applied_parameter = apply_emotion_parameter(
         nlu_emotion_score, feature_words, emotion_parameter)
-    display_emotion_text = convert_display_emotion_text(
+    estimated_emotion_name = convert_display_emotion_text(
         emotion_score_applied_parameter)
 
-    return display_emotion_text
+    return estimated_emotion_name
