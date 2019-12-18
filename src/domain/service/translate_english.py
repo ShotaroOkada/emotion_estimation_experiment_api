@@ -1,4 +1,4 @@
-from drivers.translator.main import translator
+from src.drivers.translator.main import translator
 
 
 def translate_english(text):

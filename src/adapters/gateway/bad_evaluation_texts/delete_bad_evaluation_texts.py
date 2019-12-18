@@ -1,4 +1,4 @@
-from drivers.firebase.main import db
+from src.drivers.firebase.main import db
 
 
 def delete_bad_evaluation_text(user_id):

@@ -1,4 +1,4 @@
-from drivers.firebase.main import db
+from src.drivers.firebase.main import db
 
 
 def get_bad_evaluation_texts(user_id):

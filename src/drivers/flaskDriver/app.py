@@ -1,9 +1,8 @@
 from flask import Flask, request
-from application.usecase.estimate_emotion import estimate_emotion
-from adapters.controller.emotion.get_emotion import get_emotion
-from adapters.controller.emotion.post_emotion import post_emotion
-from adapters.controller.user.post_user import post_user
-from adapters.controller.bad_evaluation_text.get_bad_evaluation_text import get_bad_evaluation_text
+from src.adapters.controller.emotion.get_emotion import get_emotion
+from src.adapters.controller.emotion.post_emotion import post_emotion
+from src.adapters.controller.user.post_user import post_user
+from src.adapters.controller.bad_evaluation_text.get_bad_evaluation_text import get_bad_evaluation_text
 
 app = Flask(__name__)
 
@@ -22,8 +21,8 @@ def route_user():
 
 @app.route('/bad_evaluation_text')
 def route_text():
-        user_id = request.headers['user_id']
-        get_bad_evaluation_text(user_id)
+    user_id = request.headers['user_id']
+    get_bad_evaluation_text(user_id)
 
 
 @app.route('/emotion', methods=['GET', 'POST'])

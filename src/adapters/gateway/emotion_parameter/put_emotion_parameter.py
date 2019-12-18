@@ -1,4 +1,4 @@
-from drivers.firebase.main import db
+from src.drivers.firebase.main import db
 
 
 def put_emotion_parameter(user_id, emotion_parameter):

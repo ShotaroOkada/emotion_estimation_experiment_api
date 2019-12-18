@@ -1,4 +1,4 @@
-from domain.entities.emotions import emotions, EmotionStrength
+from src.domain.entities.emotions import emotions, EmotionStrength
 
 
 def convert_display_emotion_text(emotion_score):

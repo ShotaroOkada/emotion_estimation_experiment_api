@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from drivers.janome.main import tokenizer
+from src.drivers.janome.main import tokenizer
 
 
 def morphological_analysis(text):
