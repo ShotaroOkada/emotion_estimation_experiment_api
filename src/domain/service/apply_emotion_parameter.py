@@ -1,4 +1,4 @@
-from src.domain.entities.emotions import EmotionCategory, order_emotion_category
+from src.domain.entities.emotion import EmotionCategory, order_emotion_category
 
 
 def apply_emotion_parameter(nlu_emotion_score, feature_words, emotion_parameter):

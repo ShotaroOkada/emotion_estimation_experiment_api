@@ -1,10 +1,10 @@
-from src.drivers.firebase.main import db
+from src.drivers.firebase.app import db
 
 
 def read_emotion_parameter(user_id):
     try:
-        emotion_parameter = db.child(user_id).child(
-            "get_emotion_parameter").get()
+        emotion_parameter = db.child("users").child(user_id).child(
+            "emotion_parameter").get()
     except Exception as error:
         print("error read emotion parameter:", error)
     else:

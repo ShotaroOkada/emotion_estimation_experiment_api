@@ -1,7 +1,7 @@
-from src.domain.entities.emotions import emotions, EmotionStrength
+from src.domain.entities.emotion import EmotionStrength
 
 
-def convert_display_emotion_text(emotion_score):
+def convert_display_emotion_text(emotion_score, emotions):
     max_emotion_category_score = -10
 
     for emotion_category in emotion_score:
