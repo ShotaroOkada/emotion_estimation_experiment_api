@@ -1,6 +1,6 @@
 from emotion import EmotionCategory
 
-initial_emotion_parameter_element = {
+initial_word_parameter = {
     'word': '',
     EmotionCategory.ANGER: 0,
     EmotionCategory.JOY: 0,

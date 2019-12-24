@@ -1,7 +1,7 @@
 from src.domain.entities.emotion import EmotionCategory, order_emotion_category
 
 
-def apply_emotion_parameter(nlu_emotion_score, feature_words, emotion_parameter):
+def apply_emotion_parameter_to_nlu_score(nlu_emotion_score, feature_words, emotion_parameter):
     for word in feature_words:
         for word_parameter in emotion_parameter:
             if word == word_parameter['word']:

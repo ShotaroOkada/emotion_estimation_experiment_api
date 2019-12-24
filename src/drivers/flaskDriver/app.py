@@ -40,5 +40,10 @@ def route_emotion():
         post_emotion(user_id, text, evaluation, emotion_name)
 
 
+@app.route('/evaluation', methods=['POST'])
+def route_evaluation():
+    hoge
+
+
 if __name__ == '__main__':
     app.run()
