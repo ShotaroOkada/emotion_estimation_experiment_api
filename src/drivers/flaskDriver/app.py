@@ -1,6 +1,5 @@
 from flask import Flask, request
 from src.adapters.controller.emotion.get_emotion import get_emotion
-from src.adapters.controller.emotion.post_emotion import post_emotion
 from src.adapters.controller.user.post_user import post_user
 from src.adapters.controller.bad_evaluation_text.get_bad_evaluation_text import get_bad_evaluation_text
 from src.adapters.controller.evaluation.post_evaluation import post_evaluation
@@ -32,13 +31,6 @@ def route_emotion():
         user_id = request.headers['user_id']
         text = request.args['text']
         get_emotion(user_id, text)
-
-    if request.method == 'POST':
-        user_id = request.headers['user_id']
-        text = request.args['text']
-        evaluation = request.args['evaluation']
-        emotion_name = request.args['emotion_name']
-        post_emotion(user_id, text, evaluation, emotion_name)
 
 
 @app.route('/evaluation', methods=['POST'])
