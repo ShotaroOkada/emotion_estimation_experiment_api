@@ -1,4 +1,4 @@
-from emotion import EmotionCategory
+from src.domain.entities.emotion import EmotionCategory
 
 initial_word_parameter = {
     'word': '',

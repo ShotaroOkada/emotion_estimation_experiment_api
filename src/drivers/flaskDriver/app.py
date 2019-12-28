@@ -3,12 +3,14 @@ from src.adapters.controller.emotion.get_emotion import get_emotion
 from src.adapters.controller.user.post_user import post_user
 from src.adapters.controller.bad_evaluation_text.get_bad_evaluation_text import get_bad_evaluation_text
 from src.adapters.controller.evaluation.post_evaluation import post_evaluation
+from src.domain.entities.emotion_parameter import initial_word_parameter
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def main():
+    print(initial_word_parameter)
     return 'emotion_estimation_app'
 
 
