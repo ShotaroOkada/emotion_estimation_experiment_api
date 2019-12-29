@@ -1,47 +1,15 @@
-from flask import Flask, request
-from src.adapters.controller.emotion.get_emotion import get_emotion
-from src.adapters.controller.user.post_user import post_user
-from src.adapters.controller.bad_evaluation_text.get_bad_evaluation_text import get_bad_evaluation_text
-from src.adapters.controller.evaluation.post_evaluation import post_evaluation
-from src.domain.entities.emotion_parameter import initial_word_parameter
+from flask import Flask
+from flask_restful import Api
+from src.drivers.flaskDriver.crud import Default, User, BadEvaluationText, Emotion, Evaluation
 
 app = Flask(__name__)
+api = Api(app)
 
-
-@app.route('/')
-def main():
-    print(initial_word_parameter)
-    return 'emotion_estimation_app'
-
-
-@app.route('/user', methods=['POST'])
-def route_user():
-    if request.method == 'POST':
-        user_id = request.headers['user_id']
-        post_user(user_id)
-
-
-@app.route('/bad_evaluation_text')
-def route_text():
-    user_id = request.headers['user_id']
-    get_bad_evaluation_text(user_id)
-
-
-@app.route('/emotion', methods=['GET', 'POST'])
-def route_emotion():
-    if request.method == 'GET':
-        user_id = request.headers['user_id']
-        text = request.args['text']
-        get_emotion(user_id, text)
-
-
-@app.route('/evaluation', methods=['POST'])
-def route_evaluation():
-    if request.method == "POST":
-        user_id = request.headers['user_id']
-        evaluation = request.args
-        post_evaluation(user_id, evaluation)
-
+api.add_resource(Default, '/')
+api.add_resource(User, '/user')
+api.add_resource(BadEvaluationText, '/bad_evaluation_text')
+api.add_resource(Emotion, '/emotion')
+api.add_resource(Evaluation, '/evaluation')
 
 if __name__ == '__main__':
     app.run()
