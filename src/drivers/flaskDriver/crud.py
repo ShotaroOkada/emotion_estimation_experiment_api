@@ -4,6 +4,8 @@ from src.adapters.controller.user.post_user import post_user
 from src.adapters.controller.bad_evaluation_text.get_bad_evaluation_text import get_bad_evaluation_text
 from src.adapters.controller.emotion.get_emotion import get_emotion
 from src.adapters.controller.evaluation.post_evaluation import post_evaluation
+import pprint
+import json
 
 
 class Default(Resource):
@@ -27,8 +29,8 @@ class BadEvaluationText(Resource):
 class Emotion(Resource):
     def get(self):
         user_id = request.headers['user_id']
-        text = request.args['text']
-        return get_emotion(user_id, text)
+        text_info = json.loads(request.args['text'])
+        return get_emotion(user_id, text_info)
 
 
 class Evaluation(Resource):

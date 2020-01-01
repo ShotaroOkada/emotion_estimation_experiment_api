@@ -11,11 +11,11 @@ class EmotionStrength(Enum):
 
 
 class EmotionCategory(Enum):
-    ANGER = 'anger'
-    JOY = 'joy'
-    SADNESS = 'sadness'
-    FEAR = 'fear'
-    DISGUST = 'disgust'
+    ANGER = "anger"
+    JOY = "joy"
+    SADNESS = "sadness"
+    FEAR = "fear"
+    DISGUST = "disgust"
 
 
 order_emotion_category = [EmotionCategory.ANGER, EmotionCategory.JOY,
