@@ -5,28 +5,33 @@ from src.adapters.controller.bad_evaluation_text.get_bad_evaluation_text import 
 from src.adapters.controller.emotion.get_emotion import get_emotion
 from src.adapters.controller.evaluation.post_evaluation import post_evaluation
 
+
 class Default(Resource):
-  def get(self):
-    return 'emotion_estimation_app'
+    def get(self):
+        return 'emotion_estimation_app'
+
 
 class User(Resource):
-  def post(self):
-    user_id = request.headers['user_id']
-    post_user(user_id)
+    def post(self):
+        user_id = request.headers['user_id']
+        post_user(user_id)
+
 
 class BadEvaluationText(Resource):
-  def get(self):
-    user_id = request.headers['user_id']
-    get_bad_evaluation_text(user_id)
+    def get(self):
+        user_id = request.headers['user_id']
+        get_bad_evaluation_text(user_id)
+
 
 class Emotion(Resource):
-  def get(self):
-    user_id = request.headers['user_id']
-    text = request.args['text']
-    get_emotion(user_id, text)
+    def get(self):
+        user_id = request.headers['user_id']
+        text = request.args['text']
+        get_emotion(user_id, text)
+
 
 class Evaluation(Resource):
-  def post(self):
-    user_id = request.headers['user_id']
-    evaluation = request.args['evaluation']
-    post_evaluation(user_id, evaluation)
+    def post(self):
+        user_id = request.headers['user_id']
+        evaluation = request.args['evaluation']
+        post_evaluation(user_id, evaluation)
