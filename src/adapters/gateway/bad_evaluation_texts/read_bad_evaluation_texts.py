@@ -10,4 +10,5 @@ def read_bad_evaluation_texts(user_id):
     else:
         bad_evaluation_texts = response.val()
         print("success read bad evaluation texts")
+        print(bad_evaluation_texts)
         return bad_evaluation_texts

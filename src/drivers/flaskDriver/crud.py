@@ -14,24 +14,25 @@ class Default(Resource):
 class User(Resource):
     def post(self):
         user_id = request.headers['user_id']
-        post_user(user_id)
+        return post_user(user_id)
 
 
 class BadEvaluationText(Resource):
     def get(self):
         user_id = request.headers['user_id']
-        get_bad_evaluation_text(user_id)
+        print(user_id)
+        return get_bad_evaluation_text(user_id)
 
 
 class Emotion(Resource):
     def get(self):
         user_id = request.headers['user_id']
         text = request.args['text']
-        get_emotion(user_id, text)
+        return get_emotion(user_id, text)
 
 
 class Evaluation(Resource):
     def post(self):
         user_id = request.headers['user_id']
         evaluation = request.args['evaluation']
-        post_evaluation(user_id, evaluation)
+        return post_evaluation(user_id, evaluation)
