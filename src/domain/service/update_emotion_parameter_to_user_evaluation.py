@@ -3,11 +3,13 @@ from src.domain.entities.emotion_parameter import initial_word_parameter
 
 
 def update_emotion_parameter_to_user_evaluation(emotion_parameter, user_evaluation, entity_evaluations, entity_emotions, feature_words):
+    print('pass 0')
     new_word_parameter_flag = True
     estimated_emotion_category = user_evaluation["emotion_category"]
     evaluation_id = user_evaluation["evaluation_id"]
-    change_score = entity_evaluations[evaluation_id].score
+    change_score = entity_evaluations[evaluation_id]['score']
 
+    print('pass 1')
     for feature_word in feature_words:
         if len(emotion_parameter):
             for word_parameter in emotion_parameter:
@@ -18,7 +20,7 @@ def update_emotion_parameter_to_user_evaluation(emotion_parameter, user_evaluati
                         for emotion_caterogy in entity_emotions:
                             word_parameter[emotion_caterogy] += change_score
                 new_word_parameter_flag = False
-
+        print('pass 2')
         if(new_word_parameter_flag and (evaluation_id == "inappropriate" or "stronger" or "weaker")):
             new_word_parameter = copy.deepcopy(initial_word_parameter)
             new_word_parameter["word"] = feature_word
@@ -29,5 +31,7 @@ def update_emotion_parameter_to_user_evaluation(emotion_parameter, user_evaluati
                     new_word_parameter[emotion_caterogy] += change_score
         emotion_parameter.append(new_word_parameter)
         new_word_parameter_flag = True
+        print('pass 3')
 
+    print('pass 4')
     return emotion_parameter

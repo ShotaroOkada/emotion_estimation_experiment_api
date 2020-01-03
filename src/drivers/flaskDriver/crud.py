@@ -35,6 +35,19 @@ class Emotion(Resource):
 
 class Evaluation(Resource):
     def post(self):
-        user_id = request.headers['user_id']
-        evaluation = request.args['evaluation']
+        try:
+            user_id = request.json['headers']['user_id']
+        except Exception as error:
+            print('error crud post evaluation get user id: ', error)
+        else:
+            print('success crud post evaluation get user id')
+            print(user_id)
+        try:
+            evaluation = request.json['params']['evaluation']
+        except Exception as error:
+            print('error crud post evaluation get evaluation: ', error)
+        else:
+            print('success crud post evaluation get evaluation')
+            pprint.pprint(evaluation)
+
         return post_evaluation(user_id, evaluation)

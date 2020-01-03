@@ -31,17 +31,17 @@ def estimate_emotion(user_id, text):
 
     response_object = {
         "nlu_algo": {
-            "algorithm": "nlu_algo",
+            "algorithm_id": "nlu_algo",
             "text": text,
             "emotion_name": nlu_estimated_emotion
         },
         "emotion_parameter_algo": {
-            "algorithm": "emotion_parameter_algo",
+            "algorithm_id": "emotion_parameter_algo",
             "text": text,
             "emotion_name": parameter_estimated_emotion
         },
         "feedback_algo": {
-            "algorithm": "feedback_algo",
+            "algorithm_id": "feedback_algo",
             "text": text,
             "emotion_name": feedback_parameter_estimated_emotion
         }

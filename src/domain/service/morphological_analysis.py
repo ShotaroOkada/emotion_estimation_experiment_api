@@ -15,6 +15,7 @@ def morphological_analysis(text):
             ):
             words.append(token.base_form)
 
+    print('Morphological analysis results')
     for word in words:
         print(word)
 
