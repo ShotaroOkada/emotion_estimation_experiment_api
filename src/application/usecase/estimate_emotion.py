@@ -8,12 +8,12 @@ from src.adapters.gateway.emotions.read_emotions import read_emotions
 from src.adapters.gateway.feedback_emotion_parameter.read_feedback_emotion_parameter import read_feedback_emotion_parameter
 
 
-def estimate_emotion(user_id, text):
+def estimate_emotion(user_id, text_info):
     emotion_parameter = read_emotion_parameter(user_id)
     emotions = read_emotions()
     feedback_emotion_parameter = read_feedback_emotion_parameter(user_id)
-    feature_words = morphological_analysis(text)
-    english_text = translate_english(text)
+    feature_words = morphological_analysis(text_info['text'])
+    english_text = translate_english(text_info['text'])
     nlu_emotion_score = nlu_estimation_emotion(english_text)
     emotion_score_applied_parameter = apply_emotion_parameter_to_nlu_score(
         nlu_emotion_score, feature_words, emotion_parameter)
@@ -32,17 +32,19 @@ def estimate_emotion(user_id, text):
     response_object = {
         "nlu_algo": {
             "algorithm_id": "nlu_algo",
-            "text": text,
+            "text": text_info['text'],
+            "previous_flag": text_info['previous_flag'],
+            "emotion_category": 'anger',
             "emotion_name": nlu_estimated_emotion
         },
         "emotion_parameter_algo": {
             "algorithm_id": "emotion_parameter_algo",
-            "text": text,
+            "text": text_info['text'],
             "emotion_name": parameter_estimated_emotion
         },
         "feedback_algo": {
             "algorithm_id": "feedback_algo",
-            "text": text,
+            "text": text_info['text'],
             "emotion_name": feedback_parameter_estimated_emotion
         }
     }

@@ -16,6 +16,4 @@ def read_emotion_parameter(user_id):
             print('emotion parameter is null')
             return {}
         else:
-            json_emotion_parameter = json.loads(emotion_parameter)
-            pprint.pprint(json_emotion_parameter)
-            return json_emotion_parameter
+            return emotion_parameter
