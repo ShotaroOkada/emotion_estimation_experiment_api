@@ -3,7 +3,7 @@ from src.domain.service.translate_english import translate_english
 from src.domain.service.nlu_estimation_emotion import nlu_estimation_emotion
 from src.domain.service.morphological_analysis import morphological_analysis
 from src.domain.service.apply_emotion_parameter_to_nlu_score import apply_emotion_parameter_to_nlu_score
-from src.domain.service.convert_display_emotion_text import convert_display_emotion_text
+from src.domain.service.convert_score_to_emotion_category_and_name import convert_score_to_emotion_category_and_name
 from src.adapters.gateway.emotions.read_emotions import read_emotions
 from src.adapters.gateway.feedback_emotion_parameter.read_feedback_emotion_parameter import read_feedback_emotion_parameter
 
@@ -20,12 +20,12 @@ def estimate_emotion(user_id, text_info):
     emotion_score_applied_feedback_parameter = apply_emotion_parameter_to_nlu_score(
         nlu_emotion_score, feature_words, feedback_emotion_parameter
     )
-    nlu_estimated_emotion = convert_display_emotion_text(
+    nlu_estimated_emotion = convert_score_to_emotion_category_and_name(
         nlu_emotion_score, emotions)
-    parameter_estimated_emotion = convert_display_emotion_text(
+    parameter_estimated_emotion = convert_score_to_emotion_category_and_name(
         emotion_score_applied_parameter, emotions
     )
-    feedback_parameter_estimated_emotion = convert_display_emotion_text(
+    feedback_parameter_estimated_emotion = convert_score_to_emotion_category_and_name(
         emotion_score_applied_feedback_parameter, emotions
     )
 
@@ -34,18 +34,22 @@ def estimate_emotion(user_id, text_info):
             "algorithm_id": "nlu_algo",
             "text": text_info['text'],
             "previous_flag": text_info['previous_flag'],
-            "emotion_category": 'anger',
-            "emotion_name": nlu_estimated_emotion
+            "emotion_category": nlu_estimated_emotion['category'],
+            "emotion_name": nlu_estimated_emotion['name']
         },
         "emotion_parameter_algo": {
             "algorithm_id": "emotion_parameter_algo",
             "text": text_info['text'],
-            "emotion_name": parameter_estimated_emotion
+            "previous_flag": text_info['previous_flag'],
+            "emotion_category": parameter_estimated_emotion['category'],
+            "emotion_name": parameter_estimated_emotion['name']
         },
         "feedback_algo": {
             "algorithm_id": "feedback_algo",
             "text": text_info['text'],
-            "emotion_name": feedback_parameter_estimated_emotion
+            "previous_flag": text_info['previous_flag'],
+            "emotion_category": feedback_parameter_estimated_emotion['category'],
+            "emotion_name": feedback_parameter_estimated_emotion['name']
         }
     }
 

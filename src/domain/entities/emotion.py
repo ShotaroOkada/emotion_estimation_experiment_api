@@ -18,5 +18,5 @@ class EmotionCategory(Enum):
     DISGUST = "disgust"
 
 
-order_emotion_category = [EmotionCategory.ANGER, EmotionCategory.JOY,
-                          EmotionCategory.SADNESS, EmotionCategory.FEAR, EmotionCategory.DISGUST]
+order_emotion_category = [EmotionCategory.ANGER.value, EmotionCategory.JOY.value,
+                          EmotionCategory.SADNESS.value, EmotionCategory.FEAR.value, EmotionCategory.DISGUST.value]
