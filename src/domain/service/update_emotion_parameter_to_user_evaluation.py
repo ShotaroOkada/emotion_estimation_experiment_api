@@ -28,18 +28,26 @@ def update_emotion_parameter_to_user_evaluation(emotion_parameter, user_evaluati
                         for emotion_caterogy in entity_emotions:
                             emotion_parameter[word][emotion_caterogy] += change_score
                             print('pass 1.7')
-
-                new_word_parameter_flag = False
+                    new_word_parameter_flag = False
         print('pass 2')
-        if(new_word_parameter_flag and (evaluation_id == "inappropriate" or "stronger" or "weaker")):
-            new_word_parameter = copy.deepcopy(initial_word_parameter)
-            new_word_parameter["word"] = feature_word
-            if evaluation_id == "inappropriate" or "stronger":
-                new_word_parameter[estimated_emotion_category] += change_score
-            elif evaluation_id == "weaker":
-                for emotion_caterogy in entity_emotions:
-                    new_word_parameter[emotion_caterogy] += change_score
-            emotion_parameter[feature_word] = new_word_parameter
+        if(new_word_parameter_flag):
+            if(evaluation_id == "inappropriate" or "stronger" or "weaker"):
+                new_word_parameter = copy.deepcopy(initial_word_parameter)
+                print('change score is')
+                print(change_score)
+                print('new word parameter is')
+                pprint.pprint(new_word_parameter)
+                new_word_parameter["word"] = feature_word
+                if evaluation_id == "inappropriate" or "stronger":
+                    new_word_parameter[estimated_emotion_category] += change_score
+                    print('new score is ',
+                          new_word_parameter[estimated_emotion_category])
+                elif evaluation_id == "weaker":
+                    for emotion_caterogy in entity_emotions:
+                        new_word_parameter[emotion_caterogy] += change_score
+                        print('new score is ',
+                              new_word_parameter[emotion_caterogy])
+                emotion_parameter[feature_word] = new_word_parameter
         new_word_parameter_flag = True
         print('pass 3')
 
