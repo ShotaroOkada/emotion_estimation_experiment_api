@@ -22,13 +22,16 @@ def estimate_emotion(user_id, text_info):
     )
 
     if text_info['previous_flag']:
+
         response_object = {
-            "feedback_algo": {
-                "algorithm_id": "feedback_algo",
-                "text": text_info['text'],
-                "previous_flag": text_info['previous_flag'],
-                "emotion_category": feedback_parameter_estimated_emotion['category'],
-                "emotion_name": feedback_parameter_estimated_emotion['name']
+            "text": text_info['text'],
+            "previous_flag": text_info['previous_flag'],
+            "algorithms": {
+                "feedback_algo": {
+                    "algorithm_id": "feedback_algo",
+                    "emotion_category": feedback_parameter_estimated_emotion['category'],
+                    "emotion_name": feedback_parameter_estimated_emotion['name']
+                }
             }
         }
 
@@ -44,26 +47,24 @@ def estimate_emotion(user_id, text_info):
     )
 
     response_object = {
-        "nlu_algo": {
-            "algorithm_id": "nlu_algo",
-            "text": text_info['text'],
-            "previous_flag": text_info['previous_flag'],
-            "emotion_category": nlu_estimated_emotion['category'],
-            "emotion_name": nlu_estimated_emotion['name']
-        },
-        "emotion_parameter_algo": {
-            "algorithm_id": "emotion_parameter_algo",
-            "text": text_info['text'],
-            "previous_flag": text_info['previous_flag'],
-            "emotion_category": parameter_estimated_emotion['category'],
-            "emotion_name": parameter_estimated_emotion['name']
-        },
-        "feedback_algo": {
-            "algorithm_id": "feedback_algo",
-            "text": text_info['text'],
-            "previous_flag": text_info['previous_flag'],
-            "emotion_category": feedback_parameter_estimated_emotion['category'],
-            "emotion_name": feedback_parameter_estimated_emotion['name']
+        "text": text_info['text'],
+        "previous_flag": text_info['previous_flag'],
+        "algorithms": {
+            "nlu_algo": {
+                "algorithm_id": "nlu_algo",
+                "emotion_category": nlu_estimated_emotion['category'],
+                "emotion_name": nlu_estimated_emotion['name']
+            },
+            "emotion_parameter_algo": {
+                "algorithm_id": "emotion_parameter_algo",
+                "emotion_category": parameter_estimated_emotion['category'],
+                "emotion_name": parameter_estimated_emotion['name']
+            },
+            "feedback_algo": {
+                "algorithm_id": "feedback_algo",
+                "emotion_category": feedback_parameter_estimated_emotion['category'],
+                "emotion_name": feedback_parameter_estimated_emotion['name']
+            }
         }
     }
 

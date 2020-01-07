@@ -4,17 +4,16 @@ from src.domain.entities.evaluation import EvaluationName
 
 
 def add_bad_evaluation_text_from_user_evaluations(user_id, user_evaluations):
-    feedback_algo_evaluation = user_evaluations['feedback_algo']
-    if feedback_algo_evaluation['previous_flag'] == True:
+    if user_evaluations['previous_flag'] == True:
         print("Did not add text because previos flag is True")
-    elif feedback_algo_evaluation['evaluation_id'] == EvaluationName.APPROPRIATE.value:
+    elif user_evaluations['algorithms']['feedback_algo']['evaluation_id'] == EvaluationName.APPROPRIATE.value:
         print("Did not add text because evaluation is appropriate")
-    elif feedback_algo_evaluation['evaluation_id'] == EvaluationName.UNKNOWN.value:
+    elif user_evaluations['algorithms']['feedback_algo']['evaluation_id'] == EvaluationName.UNKNOWN.value:
         print("Did not add text because evaluation is unknown")
     else:
         push_data = {
             "previous_flag": True,
-            "text": feedback_algo_evaluation['text']
+            "text": user_evaluations['text']
         }
         try:
             push_bad_evaluation_text(user_id, push_data)
