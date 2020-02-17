@@ -5,7 +5,7 @@ import pprint
 
 
 # NLUから受け取ったオブェクトをスコアが降順になるように並べ替える
-def sort_object_from_value(nlu_score):
+def sort_nlu_score(nlu_score):
     try:
         sorted_score = sorted(
             nlu_score.items(), key=lambda x: x[1], reverse=True)
@@ -24,4 +24,8 @@ if __name__ == '__main__':
         "anger": 0.05636
     }
 
-    pprint.pprint(sort_object_from_value(nlu_score))
+    sorted_score = sort_nlu_score(nlu_score)
+    pprint.pprint(sorted_score)
+    first_key, first_value = sorted_score[0]
+    print(first_key)
+    print(first_value)
