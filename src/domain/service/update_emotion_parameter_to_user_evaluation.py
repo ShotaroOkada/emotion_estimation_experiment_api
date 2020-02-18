@@ -57,7 +57,7 @@ def update_emotion_parameter_to_user_evaluation(nlu_score, emotion_parameter, us
                     is_new_feature_word = False
         if(is_new_feature_word):
             print(feature_word, 'is new feature word')
-            if(evaluation_id == "inappropriate" or "stronger" or "weaker"):
+            if evaluation_id in ["inappropriate", "stronger", "weaker"]:
                 new_word_parameter = copy.deepcopy(initial_word_parameter)
                 new_word_parameter["word"] = feature_word
                 if evaluation_id == "inappropriate":
