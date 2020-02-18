@@ -51,6 +51,9 @@ def update_emotion_parameter_to_user_evaluation(nlu_score, emotion_parameter, us
                                 first_score - 0.67 - 0.000001) / number_of_feature_words
                             for emotion_caterogy in entity_emotions:
                                 emotion_parameter[word][emotion_caterogy] -= change_score
+                    else:
+                        print(
+                            "parameter is not update because user evaluation is ", evaluation_id)
                     is_new_feature_word = False
         if(is_new_feature_word):
             print(feature_word, 'is new feature word')
@@ -88,6 +91,9 @@ def update_emotion_parameter_to_user_evaluation(nlu_score, emotion_parameter, us
                         for emotion_caterogy in entity_emotions:
                             new_word_parameter[emotion_caterogy] -= change_score
                 emotion_parameter[feature_word] = new_word_parameter
+            else:
+                print(
+                    "parameter is not update because user evaluation is ", evaluation_id)
         is_new_feature_word = True
 
     return emotion_parameter
