@@ -66,11 +66,11 @@ def update_emotion_parameter_to_user_evaluation(nlu_score, emotion_parameter, us
                     if first_score < 0.34:
                         change_score = (0.34 - first_score) / \
                             number_of_feature_words
-                        new_word_parameter[emotion_caterogy] += change_score
+                        new_word_parameter[estimated_emotion_category] += change_score
                     elif first_score < 0.67:
                         change_score = (0.67 - first_score) / \
                             number_of_feature_words
-                        new_word_parameter[emotion_caterogy] += change_score
+                        new_word_parameter[estimated_emotion_category] += change_score
                     else:
                         print(
                             "new word parameter is not change because stonger and 0.67 over")
